@@ -1,0 +1,91 @@
+.login-section {
+    width: 100vw;
+    height: 100vh;
+    background-color: darkslategrey;
+    position: absolute;
+    top: 0;
+    left:0;
+    opacity: 0.3;
+    display: block;
+    z-index: 9;
+}
+.login-legend{
+    color: aliceblue;
+    font-size: 2vw;
+}
+.login-container{
+    display: inline-block;
+    position: relative;
+    top: 30vh;
+    left: 45vw;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user-name {
+    height: 3vh;
+    width: 20vw;
+    font-size: 1vw;
+}
+.login {
+    width: 4vw;
+    height: 3vh;
+    color: black;
+    font-size: 1vw;
+}
+.chat-section{
+    display: flex;
+    justify-content: space-around;
+    height: 95vh;
+    margin-top: 1%;
+}
+.channels-section {
+    width: 30vw;
+    background-color: bisque;
+}
+.channels {
+    background-color: azure;
+}
+.chat-box{
+    width: 60vw;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.add-channel,
+.new-channel {
+    height: 5vh;
+    margin-left: 3%;
+    margin-top: 2%;
+}
+.channel-name {
+    display: inline-block;
+    padding: 0;
+
+}
+.channels-list {
+    background-color: azure;
+    overflow: scroll;
+}
+.channels-list li {
+    list-style: none;
+}
+.user {
+    margin: 0;
+    padding: 0;
+}
+.inbox {
+    width: 100%;
+    height: 85%;
+    background-color: beige;
+    padding: 0;
+    overflow: scroll;
+}
+.message {
+    width: 90vmin;
+    height: 10vmin;
+}
