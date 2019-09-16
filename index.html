@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>chatapp</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="parent-container">
+        <div class="chat-section">
+            <section class="channels-section">
+                <form class="channel-add-form">
+                    <input type="text" class="new-channel" placeholder="Enter a Channel" id = "new-channel">
+                    <input type="button" value="Add Channel" class="add-channel" id ="add-channel">
+                </form>
+                <div class="channels-list">
+                    <ul class="channels" id = "channels"></ul>
+                </div>
+            </section>
+            <section class="chat-box">
+                <h2 class="channel-name" id= "channel-name"></h2>
+                <p class="user" id= "user"></p>
+                <ul class="inbox" id ="inbox"></ul>
+                <form action="">
+                    <textarea class="message" name="message" id="message"></textarea>
+                    <input type="button" id="send" class="send" value="send">
+                </form>
+            </section>
+        </div>
+        <section class= "login-section" id= "login-section">
+            <fieldset class="login-container">
+                <legend class="login-legend">Login Details</legend>
+                <form action="index.html" class="login-form" id= "login-form">
+                    <input type="text" placeholder="Name" id="user-name" class="user-name" required>
+                    <input type="button" class="login" value="login" id="login">
+                </form>
+            </fieldset>
+        </section>
+    </div>
+    <script src="javascript/app.js"></script>
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+    <script>
+
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+        var pusher = new Pusher('51e901d28d3c14b16267', {
+          cluster: 'ap2',
+          forceTLS: true
+        });
+
+        var channel = pusher.subscribe('messages');
+        channel.bind('message-added', function(data) {
+            console.log(JSON.stringify(data));
+            getChannels();
+            if(document.getElementById("channel-name").name == data["channel_id"]){
+                getMessages(data["channel_id"]);
+            }
+        });
+    </script>
+</body>
+</html>
